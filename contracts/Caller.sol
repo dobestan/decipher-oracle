@@ -18,7 +18,7 @@ contract Caller is Ownable {
         // #TODO: set requests[id] to true
     }
 
-    function callback(uint btcPrice_, uint id_) public onlyOracle {
+    function callback(uint id_, uint btcPrice_) public onlyOracle {
         require(_requests[id_], "Caller: no matching request id");
         _btcPrice = btcPrice_;
         delete _requests[id_];
