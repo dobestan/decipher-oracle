@@ -26,7 +26,7 @@ contract BtcPriceOracle is Ownable {
         require(_requests[_id], "Oracle: no matching request id");
         delete _requests[_id];
         Caller caller = Caller(_caller);
-        caller.callback(_id, _btcPrice);
+        caller.setBtcPrice(_id, _btcPrice);
         emit SetBtcPrice(_caller, _id, _btcPrice);
     }
 }
