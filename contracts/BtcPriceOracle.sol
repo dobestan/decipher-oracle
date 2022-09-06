@@ -23,7 +23,7 @@ contract BtcPriceOracle is Ownable {
     }
 
     function setBtcPrice(uint _id, uint _btcPrice, address _caller) public onlyOwner {
-        require(_requests[_id], "Oracle");
+        require(_requests[_id], "Oracle: no matching request id");
         delete _requests[_id];
         Caller caller = Caller(_caller);
         caller.callback(_id, _btcPrice);
